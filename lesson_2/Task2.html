@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Homework</title>
+  </head>
+  <body>
+  <script>
+    function getRandom(min,max) {
+      return parseInt(Math.random() * (max-min)+min);
+    }
+    
+    var a = 2;
+    var x = 1 + (a *= 2); // 5 сначала выполняются операции в скобках (умножение и присваивание), затем сложение и присваивание
+    alert(x);
+    
+  </script>
+</body>
+</html>

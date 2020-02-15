@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Homework</title>
+  </head>
+  <body>
+  <script>
+    function getRandom(min,max) {
+      return parseInt(Math.random() * (max-min)+min);
+    }
+
+    function sum(a,b){
+      return a+b;
+    }
+    function substraction(a,b){
+      return a-b;
+    }
+    function multiplication(a,b){
+      return a*b;
+    }
+    function division(a,b){
+      return a/b;
+    }
+
+    function mathOperation(arg1, arg2, operation){
+      switch(operation){
+        case '+':
+          return sum(arg1,arg2);
+        case '-':
+          return substraction(arg1,arg2);
+        case '*':
+          return multiplication(arg1,arg2);
+        case '/':
+          return division(arg1,arg2);
+        default: 
+          return 'Вы ввели некорректную операцию';
+      }
+    }
+
+    var arg1=+prompt('Введите первое число');
+    var arg2=+prompt('Введите второе число');
+    var operation=prompt('Введите операцию');
+    alert('Результат операции ' + mathOperation(arg1,arg2,operation));
+    
+  </script>
+</body>
+</html>

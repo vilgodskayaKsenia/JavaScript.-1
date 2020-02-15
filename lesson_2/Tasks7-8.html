@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Homework</title>
+  </head>
+  <body>
+  <script>
+
+    console.log('null=0: ' + (null==0));
+    console.log('null>0: ' + (null>0));
+    console.log('null>=0: ' + (null>=0));
+    console.log('null<0: ' + (null<0));
+    console.log('null<=0: ' + (null<=0));
+    console.log(typeof (null));
+
+    function power(val, pow){
+      if(pow<0){
+        return('Функция не работает с отрицательной степенью');
+      }
+      return pow==0 ? 1 : val * power(val, pow-1);
+    }
+
+    document.write(power(2,3) + '<br>');
+    document.write(power(2,0) + '<br>');
+    document.write(power(5,3) + '<br>');
+    document.write(power(7,-3) + '<br>');
+    document.write(power(1,99));
+    
+  </script>
+</body>
+</html>
