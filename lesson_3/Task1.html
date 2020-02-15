@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Homework</title>
+  </head>
+  <body>
+  <script>
+    
+//С помощью цикла while вывести все простые числа в промежутке от 0 до 100
+      var i = 1;
+      while(i<=100){
+          var g = 2;
+          var isSimple = true;
+          while(g<=i/2){
+              if(i%g==0){
+                  isSimple = false;
+                  break;
+              }
+              g++;
+          }
+          if(isSimple){
+              console.log(i);
+          }
+          i++;
+      }
+    
+  </script>
+</body>
+</html>
