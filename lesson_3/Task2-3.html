@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Homework</title>
+  </head>
+  <body>
+  <script>
+    
+    var basket = [];
+      do {
+        var price = parseInt(prompt("Введите цену товара"));
+        if(isNaN(price)){
+            alert("Вы ввели некорректное значение, введите цену");
+        } else {
+            basket.push(price);
+        }
+      } while (confirm("Хотите добавить еще один товар в корзинe?"));
+      
+    function countBasketPrice(basket) {
+        var sum = 0;
+        for(var i=0; i<basket.length; i++){
+            sum += basket[i];
+        }
+      return sum;
+    }
+      
+    console.log(countBasketPrice(basket));
+    
+  </script>
+</body>
+</html>
