@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="EN">
+ <head>
+  <title>Chess Board HTML5</title>
+  <meta charset="UTF-8">
+  <style>
+   .box { text-align: center; background-color: #eeeeee; }
+   .centered { display: inline-block; margin: 0; }
+   .chess-board { border-spacing: 0; border-collapse: collapse; }
+   .chess-board th { padding: .5em; }
+   .chess-board td { border: 1px solid; width: 5em; height: 5em; text-align: center; vertical-align: middle; }
+   .chess-board .white { background: #f0d9b5; }
+   .chess-board .black { background: #b58863; }
+   .rotated {
+     transform: rotate(180deg); 
+   }
+    p {
+        font-size: 45px;
+        margin: 0px
+    }
+  </style>
+ </head>
+ <body>
+
+ <div class="box">
+  <div id='chessPlace' class="centered">
+  </div>
+ </div>
+ <script>
+     var chessPlace = document.getElementById('chessPlace');
+     var table = document.createElement('table');
+     table.className = 'chess-board';
+     chessPlace.appendChild(table);
+     var tBody = document.createElement('tbody');
+     table.appendChild(tBody);
+     var headerRow = document.createElement('tr');
+     tBody.appendChild(headerRow);
+     
+     var headerLetters = ['','A','B','C','D','E','F','G','H',''];
+     var blackFigures = ['&#9820;','&#9822;','&#9821;','&#9819;','&#9818;','&#9821;','&#9822;','&#9820;'];
+     var whiteFigures = ['&#9814;','&#9816;','&#9815;','&#9813;','&#9812;','&#9815;','&#9816;','&#9814;'];
+     
+     for(var letter of headerLetters){
+         createHeader(letter,'rotated',headerRow)
+     }
+
+     for(var i=8; i>0; i--){
+         var row = document.createElement('tr');
+         tBody.appendChild(row);
+         createHeader(i,null,row);
+         for(var j=1; j<9; j++){
+             var className;
+             if((i+j)%2==0){
+                 className = 'black';
+             } else {
+                 className = 'white';
+             }
+             var text = null;
+             switch(i){
+                 case 7: 
+                     text = '&#9823;';
+                     break;
+                 case 2:
+                     text = '&#9817;';
+                     break;
+                 case 8:
+                     text = blackFigures[j-1];
+                     break;
+                 case 1:
+                     text = whiteFigures[j-1];
+                     break;
+             }
+             if(i==7){
+                 text = '&#9823;';
+             } else if(i==2){
+                 text = '&#9817;';
+             }
+             createCell(text,className,row);
+         }
+         createHeader(i,'rotated',row);
+     }
+     
+     var bottomHeader = document.createElement('tr');
+     tBody.appendChild(bottomHeader);
+     
+     for(var letter of headerLetters){
+         createHeader(letter,null,bottomHeader);
+     }
+     
+     function createHeader(text,className,row){
+         var header = document.createElement('th');
+         if(className != null){
+             header.className = className;
+         }
+         header.innerText = text;
+         row.appendChild(header);
+     }
+     
+     function createCell(text,className,row){
+         var cell = document.createElement('td');
+         if(className != null){
+             cell.className = className;
+         }
+         if(text !=null){
+             cell.innerHTML = '<p>' + text + '</p>';
+         }
+         row.appendChild(cell);
+     }
+ </script>
+ </body>
+</html>
