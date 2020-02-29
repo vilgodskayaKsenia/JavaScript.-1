@@ -282,6 +282,7 @@ function changeDirection(e) {
             }
             break;
     }
+    move();
 }
 
 /**
